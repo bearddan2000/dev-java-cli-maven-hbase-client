@@ -1,0 +1,18 @@
+version: '3'
+services:
+  java-srv:
+    build: java-srv
+    ports:
+      - "80:8080"
+
+  # https://stackoverflow.com/questions/25564097/connect-to-hbase-running-in-docker
+
+  hbase:
+    image: oddpoet/hbase-cdh5
+    hostname: hbase
+    ports:
+     - "3181:2181"
+     - "60000:60000"
+     - "60010:60010"
+     - "60020:60020"
+     - "60030:60030"
